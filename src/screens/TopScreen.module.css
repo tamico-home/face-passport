@@ -1,0 +1,84 @@
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  text-align: center;
+  position: relative;
+}
+
+.sky {
+  position: absolute;
+  inset: -24px -20px auto;
+  height: 220px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cloud {
+  position: absolute;
+  opacity: 0.9;
+}
+
+.plane {
+  position: absolute;
+  animation: fly 14s linear infinite;
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(-40px) translateY(0);
+  }
+  to {
+    transform: translateX(420px) translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plane {
+    animation: none;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.title {
+  font-size: 1.9rem;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.catch {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-sky-deep);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}

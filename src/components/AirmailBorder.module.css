@@ -1,0 +1,16 @@
+.border {
+  height: 8px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-coral) 0,
+    var(--color-coral) 12px,
+    #fff 12px,
+    #fff 20px,
+    var(--color-sky) 20px,
+    var(--color-sky) 32px,
+    #fff 32px,
+    #fff 40px
+  );
+  flex-shrink: 0;
+}

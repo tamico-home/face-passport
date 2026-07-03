@@ -1,0 +1,76 @@
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.stage {
+  position: relative;
+  width: 72%;
+  max-width: 300px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-ink);
+  box-shadow: 0 14px 30px var(--color-shadow);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+
+.meshSvg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+}
+
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 46%;
+  background: linear-gradient(
+    180deg,
+    rgba(62, 207, 160, 0) 0%,
+    rgba(62, 207, 160, 0.55) 50%,
+    rgba(62, 207, 160, 0) 100%
+  );
+  animation: scan 1.15s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -46%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.label {
+  font-size: 1rem;
+  color: var(--color-ink);
+  text-align: center;
+}
+
+.flagRoulette {
+  font-size: 2.6rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanLine {
+    animation: none;
+    top: 27%;
+  }
+}
