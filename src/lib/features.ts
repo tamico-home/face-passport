@@ -100,13 +100,13 @@ export function computeFeatures(landmarks: NormalizedLandmark[]): FeatureVector 
   const centroidBalanceRaw = avgDistFromCenter / faceDiagonal;
 
   return {
-    faceAspectRatio: normalize(faceAspectRatioRaw, 1.05, 1.55),
-    jawRoundness: normalize(jawRoundnessRaw, 0.55, 0.85),
-    eyeSize: normalize(eyeSizeRaw, 0.16, 0.28),
-    eyeSpacing: normalize(eyeSpacingRaw, 0.28, 0.46),
-    noseRatio: normalize(noseRatioRaw, 1.0, 2.2),
-    lipThickness: normalize(lipThicknessRaw, 0.05, 0.16),
-    browAngle: normalize(browAngleRaw, 0.05, 0.5),
-    centroidBalance: normalize(centroidBalanceRaw, 0.14, 0.24),
+    faceAspectRatio: normalize(faceAspectRatioRaw, 0.75, 1.35),
+    jawRoundness: normalize(jawRoundnessRaw, 0.55, 1.0),
+    eyeSize: normalize(eyeSizeRaw, 0.12, 0.26),
+    eyeSpacing: normalize(eyeSpacingRaw, 0.16, 0.32),
+    noseRatio: normalize(noseRatioRaw, 0.35, 1.05),
+    lipThickness: normalize(lipThicknessRaw, 0.03, 0.15),
+    browAngle: normalize(browAngleRaw, 0.02, 0.47),
+    centroidBalance: normalize(centroidBalanceRaw, 0.1, 0.22),
   };
 }
