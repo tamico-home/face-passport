@@ -37,9 +37,6 @@ export function useCamera(enabled: boolean) {
           return;
         }
         streamRef.current = stream;
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
         setStatus('streaming');
       })
       .catch((err: DOMException) => {
@@ -53,6 +50,14 @@ export function useCamera(enabled: boolean) {
       streamRef.current = null;
     };
   }, [enabled]);
+
+  // status が 'streaming' になって <video> がマウントされた後に、
+  // 取得済みのストリームを改めて紐付ける(マウント前だとvideoRefがnullで設定できないため)
+  useEffect(() => {
+    if (status === 'streaming' && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [status]);
 
   function captureFrame(): HTMLCanvasElement | null {
     const video = videoRef.current;
